@@ -31,8 +31,10 @@ fn output_rand(max: u32, seed: u32) -> u32 {
 }
 
 fn finder_rand(secret_number: u32) {
+    let mut guess_try: u32 = 0;
     loop {
         println!("Input answer:");
+        guess_try += 1;
         let mut input_string = String::new();
         io::stdin().read_line(&mut input_string).expect("Failed to read input");
         let guess_number: u32 = match input_string.trim().parse() {
@@ -42,7 +44,7 @@ fn finder_rand(secret_number: u32) {
             }
         };
         if guess_number == secret_number {
-            println!("정답입니다. 당신이 입력한 수: {} | 정답 수: {}", guess_number, secret_number);
+            println!("정답입니다. 당신이 입력한 수: {} | 정답 수: {} | 시도 수: {}", guess_number, secret_number, guess_try);
             break;
         } else if guess_number > secret_number {
             println!("정답 수는 당신이 입력한 수: {} 보다 낮습니다.", guess_number);
