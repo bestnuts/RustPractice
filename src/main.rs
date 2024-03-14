@@ -1,6 +1,6 @@
 use std::io;
 
-static WORD_LIST: [&str; 2] = ["엄준식", "첫말"];
+static WORD_LIST: [&str; 5] = ["엄준식", "첫말", "복소수", "선형합동법", "내리막길"];
 static WRONG_WORD_LIST: [&str; 26] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 fn main() {
