@@ -16,7 +16,7 @@ fn start_game() {
         Ok(seed) => {
             finder_rand(output_rand(99, seed));
         }
-        Err(err) => {
+        Err(_err) => {
             println!("Wrong seed Retry to start");
             start_game();
         }
@@ -39,7 +39,7 @@ fn finder_rand(secret_number: u32) {
         io::stdin().read_line(&mut input_string).expect("Failed to read input");
         let guess_number: u32 = match input_string.trim().parse() {
             Ok(guess) => guess,
-            Err(err) => {
+            Err(_err) => {
                 continue;
             }
         };
