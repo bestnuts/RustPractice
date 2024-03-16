@@ -15,7 +15,7 @@ fn start_game() {
         io::stdin().read_line(&mut input_string).expect("Failed to read input");
         word_list_index = match input_string.trim().parse() {
             Ok(index) => index,
-            Err(err) => {
+            Err(_err) => {
                 println!("Wrong index err Retry to start");
                 continue;
             }
@@ -31,18 +31,18 @@ fn start_game() {
 }
 
 fn util_word_replace(string: &str) -> bool {
-    let mut replace = string.to_string().to_lowercase();
+    let mut _replace = string.to_string().to_lowercase();
     for p in 0..9 {
-        if replace.contains(p.to_string().as_str()) {
+        if _replace.contains(p.to_string().as_str()) {
             return false;
         }
     }
     for q in WRONG_WORD_LIST {
-        if replace.contains(q) {
+        if _replace.contains(q) {
             return false;
         }
     }
-    if replace.contains(" ") {
+    if _replace.contains(" ") {
         return false;
     }
     return true;
@@ -54,9 +54,9 @@ fn word_relay(mut last_word: String) {
     let mut input_word: String = String::new();
     loop {
         io::stdin().read_line(&mut input_word).expect("Failed to read input");
-        let mut word_vec: Vec<char> = input_word.trim().to_string().chars().collect::<Vec<char>>();
+        let mut _word_vec: Vec<char> = input_word.trim().to_string().chars().collect::<Vec<char>>();
         if util_word_replace(input_word.as_str()) {
-            if word_vec.len() > 1{
+            if _word_vec.len() > 1{
                 let curr_char: char = input_word.chars().next().unwrap_or(' ');
                 if curr_char == last_char {
                     break;
